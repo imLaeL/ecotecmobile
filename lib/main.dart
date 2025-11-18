@@ -1,3 +1,7 @@
+// ==============================
+//             Parte 1
+// ==============================
+
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -27,6 +31,16 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
+
+// ==============================
+//          Parte 1 final
+// ==============================
+
+
+
+// ==============================
+//             Parte 2
+// ==============================
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
@@ -78,6 +92,16 @@ class _HomePageState extends State<HomePage> {
     "Alan Kristofer"
   ];
 
+// ==============================
+//          Parte 2 final
+// ==============================
+
+
+
+// ==============================
+//             Parte 3
+// ==============================
+
   void _scrollToPosition(double pos) {
     _scrollController.animateTo(
       pos,
@@ -114,6 +138,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final isWide = MediaQuery.of(context).size.width >= 600;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('EcoTec'),
@@ -138,6 +163,17 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(width: 8),
         ],
       ),
+
+// ==============================
+//          Parte 3 final
+// ==============================
+
+
+
+// ==============================
+//             Parte 4
+// ==============================
+
       drawer: Drawer(
         child: SafeArea(
           child: ListView(
@@ -200,6 +236,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Padding(
@@ -209,8 +246,8 @@ class _HomePageState extends State<HomePage> {
             children: [
               Center(
                 child: ConstrainedBox(
-                  constraints:
-                      BoxConstraints(maxWidth: isWide ? 800 : double.infinity),
+                  constraints: BoxConstraints(
+                      maxWidth: isWide ? 800 : double.infinity),
                   child: Column(
                     children: [
                       const SizedBox(height: 8),
@@ -230,12 +267,13 @@ class _HomePageState extends State<HomePage> {
                       ),
                       const SizedBox(height: 12),
                       ElevatedButton.icon(
-                          onPressed: () => _jumpToSection('desafios'),
-                          label: const Text('Leia mais'),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF28AA00),
-                            foregroundColor: Colors.white,
-                          )),
+                        onPressed: () => _jumpToSection('desafios'),
+                        label: const Text('Leia mais'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF28AA00),
+                          foregroundColor: Colors.white,
+                        ),
+                      ),
                       const SizedBox(height: 18),
                       Container(
                         width: double.infinity,
@@ -254,16 +292,18 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+
               const SizedBox(height: 22),
               SectionTitle(title: 'Introdução'),
               Card(
                 elevation: 0,
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child:
-                      Text(intro, style: Theme.of(context).textTheme.bodyLarge),
+                  child: Text(intro,
+                      style: Theme.of(context).textTheme.bodyLarge),
                 ),
               ),
+
               const SizedBox(height: 18),
               SectionTitle(title: 'Desafios do saneamento básico'),
               Card(
@@ -277,15 +317,24 @@ class _HomePageState extends State<HomePage> {
                                   color: Colors.white),
                               title: Text(
                                 c,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                ),
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ))
                         .toList(),
                   ),
                 ),
               ),
+
+// ==============================
+//          Parte 4 final
+// ==============================
+
+
+
+// ==============================
+//             Parte 5
+// ==============================
+
               const SizedBox(height: 18),
               SectionTitle(title: 'Como a TI pode ajudar ?'),
               const SizedBox(height: 8),
@@ -299,11 +348,8 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(8)),
                             leading: CircleAvatar(
                               backgroundColor: const Color(0xFF28AA00),
-                              child: Icon(
-                                h.icon,
-                                color: Colors.white,
-                                size: 20,
-                              ),
+                              child: Icon(h.icon,
+                                  color: Colors.white, size: 20),
                             ),
                             title: Text(h.title,
                                 style: const TextStyle(
@@ -313,6 +359,7 @@ class _HomePageState extends State<HomePage> {
                         ))
                     .toList(),
               ),
+
               const SizedBox(height: 18),
               SectionTitle(title: 'Benefícios da aplicação de TI'),
               Card(
@@ -331,22 +378,24 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+
               const SizedBox(height: 18),
               SectionTitle(title: 'Desafios e limitações'),
               Card(
-                color: const Color(0xFF28AA00), // fundo verde
+                color: const Color(0xFF28AA00),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0), // padding maior
+                  padding: const EdgeInsets.all(16.0),
                   child: Text(
                     'Apesar das vantagens, a aplicação da TI enfrenta barreiras, como alto custo inicial, necessidade de infraestrutura digital, capacitação técnica e integração com redes antigas.',
                     style: TextStyle(
-                      color: Colors.white, // cor da fonte branca
-                      height: 1.6, // espaçamento entre linhas maior
-                      fontSize: 16, // opcional: deixa o texto mais legível
+                      color: Colors.white,
+                      height: 1.6,
+                      fontSize: 16,
                     ),
                   ),
                 ),
               ),
+
               const SizedBox(height: 18),
               SectionTitle(title: 'Time'),
               const SizedBox(height: 8),
@@ -363,13 +412,12 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   final name = team[index];
                   return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 4.0), // espaço entre cards
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
                     child: Row(
                       children: [
                         ClipOval(
                           child: Image.asset(
-                            'assets/images/user${index + 1}.jpeg', // coloque as imagens na pasta assets/images
+                            'assets/images/user${index + 1}.jpeg',
                             width: 40,
                             height: 40,
                             fit: BoxFit.cover,
@@ -377,23 +425,23 @@ class _HomePageState extends State<HomePage> {
                         ),
                         const SizedBox(width: 8),
                         Expanded(
-                          child: Text(
-                            name,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
+                          child: Text(name,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold)),
                         ),
                       ],
                     ),
                   );
                 },
               ),
+
               const SizedBox(height: 18),
               SectionTitle(title: 'Contato'),
               const SizedBox(height: 12),
               Center(
                 child: Wrap(
-                  spacing: 40, // espaço horizontal entre os itens
-                  runSpacing: 12, // espaço vertical entre linhas
+                  spacing: 40,
+                  runSpacing: 12,
                   alignment: WrapAlignment.center,
                   children: const [
                     Text('contato@ecotec.com.br'),
@@ -403,17 +451,20 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+
               const SizedBox(height: 24),
               Center(
                 child: Text(
-                    '© Copyright EcoTec 2025. Todos os direitos reservados.',
-                    style: Theme.of(context).textTheme.bodySmall),
+                  '© Copyright EcoTec 2025. Todos os direitos reservados.',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               ),
               const SizedBox(height: 24),
             ],
           ),
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         tooltip: 'Topo',
         onPressed: () => _scrollController.animateTo(
@@ -421,8 +472,8 @@ class _HomePageState extends State<HomePage> {
           duration: const Duration(milliseconds: 400),
           curve: Curves.easeOut,
         ),
-        backgroundColor: const Color(0xFF28AA00), // cor de fundo verde
-        foregroundColor: Colors.white, // cor do ícone
+        backgroundColor: const Color(0xFF28AA00),
+        foregroundColor: Colors.white,
         child: const Icon(Icons.arrow_upward),
       ),
     );
@@ -454,3 +505,7 @@ class SectionTitle extends StatelessWidget {
     );
   }
 }
+
+// ==============================
+//          Parte 5 final
+// ==============================
